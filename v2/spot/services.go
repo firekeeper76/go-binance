@@ -134,6 +134,10 @@ func NewServerTimeService(c *binance.Client) *ServerTimeService {
 	return &ServerTimeService{C: c}
 }
 
+func NewSetServerTimeService(c *binance.Client) *SetServerTimeService {
+	return &SetServerTimeService{C: c}
+}
+
 func NewBLVTSubscribeService(c *binance.Client) *BLVTSubscribeService {
 	return &BLVTSubscribeService{C: c}
 }

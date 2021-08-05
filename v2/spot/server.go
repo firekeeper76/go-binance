@@ -42,3 +42,19 @@ func (s *PingService) Do(ctx context.Context, opts ...binance.RequestOption) (er
 	_, err = s.C.Request(ctx, r, opts...)
 	return err
 }
+
+// SetServerTimeService set server time
+type SetServerTimeService struct {
+	C *binance.Client
+}
+
+// Do send request
+func (s *SetServerTimeService) Do(ctx context.Context, opts ...binance.RequestOption) (timeOffset int64, err *binance.APIError) {
+	serverTime, rErr := NewServerTimeService(s.C).Do(ctx)
+	if rErr != nil {
+		return 0, rErr
+	}
+	timeOffset = binance.CurrentTimestamp() - serverTime
+	s.C.TimeOffset = timeOffset
+	return timeOffset, nil
+}
