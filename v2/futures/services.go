@@ -306,3 +306,7 @@ func NewListAccountTradeService(c *binance.Client) *ListAccountTradeService {
 func NewGetIncomeHistoryService(c *binance.Client) *GetIncomeHistoryService {
 	return &GetIncomeHistoryService{C: c}
 }
+
+func NewBlvtKlinesService(c *binance.Client) *BlvtKlinesService {
+	return &BlvtKlinesService{C: c}
+}
