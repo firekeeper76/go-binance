@@ -118,6 +118,14 @@ const (
 	recvWindowKey = "recvWindow"
 )
 
+func NewClient(key, secret string) *binance.Client {
+	return binance.NewClient(key, secret)
+}
+
+func NewTestClient(key, secret string) *binance.Client {
+	return binance.NewTestClient(key, secret)
+}
+
 func NewPingService(c *binance.Client) *PingService {
 	return &PingService{C: c}
 }
