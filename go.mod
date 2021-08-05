@@ -1,4 +1,4 @@
-module github.com/firekeeper76/go-binance
+module github.com/adshao/go-binance/v2
 
 go 1.15
 

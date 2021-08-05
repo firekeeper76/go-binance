@@ -1,7 +1,7 @@
 package spot
 
 import (
-	"github.com/firekeeper76/go-binance"
+	"github.com/adshao/go-binance/v2"
 	"context"
 	"encoding/json"
 	"github.com/shopspring/decimal"

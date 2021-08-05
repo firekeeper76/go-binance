@@ -3,9 +3,9 @@ package binance_test
 import (
 	"context"
 	"fmt"
-	"github.com/firekeeper76/go-binance"
-	"github.com/firekeeper76/go-binance/delivery"
-	"github.com/firekeeper76/go-binance/futures"
+	"github.com/adshao/go-binance/v2"
+	"github.com/adshao/go-binance/v2/delivery"
+	"github.com/adshao/go-binance/v2/futures"
 	"testing"
 	"time"
 )

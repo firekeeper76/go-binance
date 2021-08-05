@@ -1,6 +1,6 @@
 package futures
 
-import "github.com/firekeeper76/go-binance"
+import "github.com/adshao/go-binance/v2"
 
 // SideType define side type of order
 type SideType string
