@@ -1,6 +1,6 @@
 package delivery
 
-import "go-binance"
+import "github.com/firekeeper76/go-binance"
 
 // SideType define side type of order
 type SideType string

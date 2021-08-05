@@ -3,7 +3,7 @@ package futures
 import (
 	"context"
 	"encoding/json"
-	"go-binance"
+	"github.com/firekeeper76/go-binance"
 )
 
 // ExchangeInfoService exchange info service

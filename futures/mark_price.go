@@ -3,8 +3,8 @@ package futures
 import (
 	"context"
 	"encoding/json"
-	"go-binance"
-	"go-binance/common"
+	"github.com/firekeeper76/go-binance"
+	"github.com/firekeeper76/go-binance/common"
 )
 
 // PremiumIndexService get premium index

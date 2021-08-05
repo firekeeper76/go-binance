@@ -3,7 +3,7 @@ package spot
 import (
 	"context"
 	"encoding/json"
-	"go-binance"
+	"github.com/firekeeper76/go-binance"
 )
 
 // FuturesTransferService transfer asset between spot account and futures account

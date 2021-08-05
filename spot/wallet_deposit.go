@@ -3,7 +3,7 @@ package spot
 import (
 	"context"
 	"encoding/json"
-	"go-binance"
+	"github.com/firekeeper76/go-binance"
 )
 
 type DepositsAddressService struct {

@@ -2,7 +2,7 @@ package spot
 
 import (
 	"context"
-	"go-binance"
+	"github.com/firekeeper76/go-binance"
 )
 
 // KlinesService list klines
