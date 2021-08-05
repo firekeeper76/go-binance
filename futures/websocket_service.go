@@ -1,7 +1,7 @@
 package futures
 
 import (
-	"github.com/firekeeper76/go-binance"
+	"go-binance"
 	"encoding/json"
 	"errors"
 	"fmt"

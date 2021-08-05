@@ -1,7 +1,7 @@
 package delivery
 
 import (
-	"github.com/firekeeper76/go-binance"
+	"go-binance"
 	"context"
 	"encoding/json"
 )

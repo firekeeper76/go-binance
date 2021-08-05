@@ -1,9 +1,9 @@
 package binance_test
 
 import (
-	"github.com/firekeeper76/go-binance"
-	"github.com/firekeeper76/go-binance/futures"
-	"github.com/firekeeper76/go-binance/spot"
+	"go-binance"
+	"go-binance/futures"
+	"go-binance/spot"
 	"context"
 	"fmt"
 	"testing"

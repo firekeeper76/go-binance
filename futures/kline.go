@@ -2,7 +2,7 @@ package futures
 
 import (
 	"context"
-	"github.com/firekeeper76/go-binance"
+	"go-binance"
 )
 
 // KlinesService list klines

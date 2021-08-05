@@ -1,8 +1,8 @@
 package futures
 
 import (
-	"github.com/firekeeper76/go-binance"
-	"github.com/firekeeper76/go-binance/common"
+	"go-binance"
+	"go-binance/common"
 	"context"
 	"encoding/json"
 )

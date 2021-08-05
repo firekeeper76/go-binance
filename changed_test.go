@@ -4,9 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/firekeeper76/go-binance"
-	"github.com/firekeeper76/go-binance/futures"
-	"github.com/firekeeper76/go-binance/spot"
+	"go-binance"
+	"go-binance/futures"
+	"go-binance/spot"
 	"testing"
 )
 
