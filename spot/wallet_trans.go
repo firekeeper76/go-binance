@@ -3,7 +3,7 @@ package spot
 import (
 	"context"
 	"encoding/json"
-	"github.com/adshao/go-binance"
+	"github.com/adshao/go-binance/v2"
 )
 
 type TransHistoryService struct {

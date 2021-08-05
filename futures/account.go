@@ -1,7 +1,7 @@
 package futures
 
 import (
-	"github.com/adshao/go-binance"
+	"github.com/adshao/go-binance/v2"
 	"context"
 	"encoding/json"
 )

@@ -1,8 +1,8 @@
 package binance_test
 
 import (
-	"github.com/adshao/go-binance"
-	"github.com/adshao/go-binance/futures"
+	"github.com/adshao/go-binance/v2"
+	"github.com/adshao/go-binance/v2/futures"
 	"context"
 	"fmt"
 	"testing"
