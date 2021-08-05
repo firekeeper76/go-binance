@@ -53,7 +53,7 @@ var (
     apiKey = "your api key"
     secretKey = "your secret key"
 )
-client := binance.NewClient(apiKey, secretKey)
+spotclient := binance.NewClient(apiKey, secretKey)
 futuresClient := binance.NewFuturesClient(apiKey, secretKey)    // USDT-M Futures
 deliveryClient := binance.NewDeliveryClient(apiKey, secretKey)  // Coin-M Futures
 ```
@@ -67,7 +67,7 @@ Following are some simple examples, please refer to [godoc](https://godoc.org/gi
 #### Create Order
 
 ```golang
-order, err := client.NewCreateOrderService().Symbol("BNBETH").
+order, err := spot.NewCreateOrderService(spotclient).Symbol("BNBETH").
         Side(binance.SideTypeBuy).Type(binance.OrderTypeLimit).
         TimeInForce(binance.TimeInForceTypeGTC).Quantity("5").
         Price("0.0030000").Do(context.Background())
@@ -83,7 +83,7 @@ fmt.Println(order)
 #### Get Order
 
 ```golang
-order, err := client.NewGetOrderService().Symbol("BNBETH").
+order, err := spot.NewGetOrderService(spotclient).Symbol("BNBETH").
     OrderID(4432844).Do(context.Background())
 if err != nil {
     fmt.Println(err)
@@ -95,7 +95,7 @@ fmt.Println(order)
 #### Cancel Order
 
 ```golang
-_, err := client.NewCancelOrderService().Symbol("BNBETH").
+_, err := spot.NewCancelOrderService(spotclient).Symbol("BNBETH").
     OrderID(4432844).Do(context.Background())
 if err != nil {
     fmt.Println(err)
@@ -325,27 +325,25 @@ client := binance.NewClient(apiKey, secretKey)
 
 #### Futures (usd(s)-m futures)
 
-Use the `futures.UseTestnet` flag before calling the client creation and the websockets methods
+Use the `futures.UseTestnet` flag before calling the websockets methods
 
 ```go
 import (
     "github.com/adshao/github.com/adshao/go-binance/v2/futures"
 )
 
-futures.UseTestnet = true
-BinanceClient = futures.NewClient(ApiKey, SecretKey)
+futuresClient = futures.NewFuturesTestClient(ApiKey, SecretKey)
 ```
 
 #### Delivery (coin-m futures)
 
-Use the `delivery.UseTestnet` flag before calling the client creation and the websockets methods
+Use the `delivery.UseTestnet` flag before calling the websockets methods
 
 ```go
 import (
     "github.com/adshao/github.com/adshao/go-binance/v2/delivery"
 )
 
-delivery.UseTestnet = true
-BinanceClient = delivery.NewClient(ApiKey, SecretKey)
+deliveryClient = delivery.NewDeliveryTestClient(ApiKey, SecretKey)
 ```
 

@@ -1,9 +1,16 @@
-package delivery
+package binance
 
 import (
 	"time"
 
 	"github.com/gorilla/websocket"
+)
+
+var (
+	// WebsocketTimeout is an interval for sending ping/pong messages if WebsocketKeepalive is enabled
+	WebsocketTimeout = time.Second * 60
+	// WebsocketKeepalive enables sending ping/pong messages to check the connection stability
+	WebsocketKeepalive = false
 )
 
 // WsHandler handle raw websocket message
@@ -17,13 +24,13 @@ type WsConfig struct {
 	Endpoint string
 }
 
-func newWsConfig(endpoint string) *WsConfig {
+func NewWsConfig(endpoint string) *WsConfig {
 	return &WsConfig{
 		Endpoint: endpoint,
 	}
 }
 
-var wsServe = func(cfg *WsConfig, handler WsHandler, errHandler ErrHandler) (doneC, stopC chan struct{}, err error) {
+var WsServe = func(cfg *WsConfig, handler WsHandler, errHandler ErrHandler) (doneC, stopC chan struct{}, err error) {
 	c, _, err := websocket.DefaultDialer.Dial(cfg.Endpoint, nil)
 	if err != nil {
 		return nil, nil, err

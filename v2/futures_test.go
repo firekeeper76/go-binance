@@ -1,16 +1,16 @@
 package binance_test
 
 import (
-	"github.com/adshao/go-binance"
-	"github.com/adshao/go-binance/futures"
 	"context"
 	"fmt"
+	"github.com/adshao/go-binance"
+	"github.com/adshao/go-binance/futures"
 	"testing"
 	"time"
 )
 
 func TestWs(t *testing.T) {
-	futures.WebsocketKeepalive = true
+	binance.WebsocketKeepalive = true
 	wsHandler := func(event *futures.WsDepthEvent) {
 		fmt.Println(event)
 	}

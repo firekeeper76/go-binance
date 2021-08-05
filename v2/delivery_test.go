@@ -5,14 +5,12 @@ import (
 	"fmt"
 	"github.com/adshao/go-binance"
 	"github.com/adshao/go-binance/delivery"
-	"github.com/adshao/go-binance/futures"
 	"testing"
 	"time"
 )
 
 func TestWsDelivery(t *testing.T) {
-	futures.WebsocketKeepalive = true
-	delivery.WebsocketKeepalive = true
+	binance.WebsocketKeepalive = true
 	wsHandler := func(event *delivery.WsKlineEvent) {
 		fmt.Println(event)
 	}
@@ -29,7 +27,7 @@ func TestWsDelivery(t *testing.T) {
 }
 
 func TestUserWsDelivery(t *testing.T) {
-	delivery.WebsocketKeepalive = true
+	binance.WebsocketKeepalive = true
 	wsHandler := func(event []byte) {
 		fmt.Println(string(event))
 	}
