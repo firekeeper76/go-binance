@@ -106,7 +106,7 @@ if err != nil {
 #### List Open Orders
 
 ```golang
-openOrders, err := client.NewListOpenOrdersService().Symbol("BNBETH").
+openOrders, err := spot.NewListOpenOrdersService(spotClient).Symbol("BNBETH").
     Do(context.Background())
 if err != nil {
     fmt.Println(err)
@@ -120,7 +120,7 @@ for _, o := range openOrders {
 #### List Orders
 
 ```golang
-orders, err := client.NewListOrdersService().Symbol("BNBETH").
+orders, err := spot.NewListOrdersService(spotClient).Symbol("BNBETH").
     Do(context.Background())
 if err != nil {
     fmt.Println(err)
@@ -134,7 +134,7 @@ for _, o := range orders {
 #### List Ticker Prices
 
 ```golang
-prices, err := client.NewListPricesService().Do(context.Background())
+prices, err := spot.NewListPricesService(spotClient).Do(context.Background())
 if err != nil {
     fmt.Println(err)
     return
@@ -147,7 +147,7 @@ for _, p := range prices {
 #### Show Depth
 
 ```golang
-res, err := client.NewDepthService().Symbol("LTCBTC").
+res, err := spot..NewDepthService(spotClient).Symbol("LTCBTC").
     Do(context.Background())
 if err != nil {
     fmt.Println(err)
@@ -159,7 +159,7 @@ fmt.Println(res)
 #### List Klines
 
 ```golang
-klines, err := client.NewKlinesService().Symbol("LTCBTC").
+klines, err := spot.NewKlinesService(spotClient).Symbol("LTCBTC").
     Interval("15m").Do(context.Background())
 if err != nil {
     fmt.Println(err)
@@ -173,7 +173,7 @@ for _, k := range klines {
 #### List Aggregate Trades
 
 ```golang
-trades, err := client.NewAggTradesService().
+trades, err := spot.NewAggTradesService(spotClient).
     Symbol("LTCBTC").StartTime(1508673256594).EndTime(1508673256595).
     Do(context.Background())
 if err != nil {
@@ -188,7 +188,7 @@ for _, t := range trades {
 #### Get Account
 
 ```golang
-res, err := client.NewGetAccountService().Do(context.Background())
+res, err := spot.NewGetAccountService(spotClient).Do(context.Background())
 if err != nil {
     fmt.Println(err)
     return
@@ -199,7 +199,7 @@ fmt.Println(res)
 #### Start User Stream
 
 ```golang
-res, err := client.NewStartUserStreamService().Do(context.Background())
+res, err := spot.NewStartUserStreamService(spotClient).Do(context.Background())
 if err != nil {
     fmt.Println(err)
     return
@@ -293,7 +293,7 @@ Your system time may be incorrect and you may use following function to set the 
 
 ```golang
 // use the client future for Futures
-client.NewSetServerTimeService().Do(context.Background())
+spot.NewSetServerTimeService(futuresClient).Do(context.Background())
 ```
 
 Or you can also overwrite the `TimeOffset` yourself:
@@ -312,6 +312,7 @@ You can use the testnet by enabling the corresponding flag.
 
 #### Spot
 
+You can create a new test client Or
 Use the `binance.UseTestnet` flag before calling the client creation and the websockets methods.
 
 ```go
@@ -319,31 +320,35 @@ import (
     "github.com/adshao/github.com/adshao/go-binance/v2"
 )
 
-binance.UseTestnet = true
-client := binance.NewClient(apiKey, secretKey)
+spot.UseTestnet = true
+
+client := binance.NewTestClient(apiKey, secretKey)
 ```
 
 #### Futures (usd(s)-m futures)
 
+You can create a new test client Or
 Use the `futures.UseTestnet` flag before calling the websockets methods
 
 ```go
 import (
     "github.com/adshao/github.com/adshao/go-binance/v2/futures"
 )
-
+futures.UseWsTestnet = true
 futuresClient = futures.NewFuturesTestClient(ApiKey, SecretKey)
 ```
 
 #### Delivery (coin-m futures)
 
-Use the `delivery.UseTestnet` flag before calling the websockets methods
+You can create a new test client Or
+Use the `delivery.UseWsTestnet` flag before calling the websockets methods
 
 ```go
 import (
     "github.com/adshao/github.com/adshao/go-binance/v2/delivery"
 )
 
-deliveryClient = delivery.NewDeliveryTestClient(ApiKey, SecretKey)
+delivery.UseWsTestnet = true
+delivery.NewDeliveryTestClient(ApiKey, SecretKey)
 ```
 
