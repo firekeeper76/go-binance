@@ -1,9 +1,9 @@
 package futures
 
 import (
-	"github.com/adshao/go-binance"
 	"context"
 	"encoding/json"
+	"github.com/adshao/go-binance/v2"
 )
 
 // HistoricalTradesService trades

@@ -1,8 +1,8 @@
 package spot
 
 import (
-	"github.com/adshao/go-binance"
 	"context"
+	"github.com/adshao/go-binance/v2"
 )
 
 // StartUserStreamService create listen key for user stream service

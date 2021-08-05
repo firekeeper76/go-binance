@@ -3,7 +3,7 @@ package futures
 import (
 	"context"
 	"encoding/json"
-	"github.com/adshao/go-binance"
+	"github.com/adshao/go-binance/v2"
 )
 
 // GetBalanceService get account balance

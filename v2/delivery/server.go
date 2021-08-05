@@ -1,8 +1,8 @@
 package delivery
 
 import (
-	"github.com/adshao/go-binance"
 	"context"
+	"github.com/adshao/go-binance/v2"
 )
 
 // PingService ping server

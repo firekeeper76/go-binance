@@ -3,7 +3,7 @@ package spot
 import (
 	"context"
 	"encoding/json"
-	"github.com/adshao/go-binance"
+	"github.com/adshao/go-binance/v2"
 )
 
 // FuturesTransferService transfer asset between spot account and futures account
@@ -144,4 +144,3 @@ type FuturesTransfer struct {
 	Timestamp int64                     `json:"timestamp"`
 	Status    FuturesTransferStatusType `json:"status"`
 }
-

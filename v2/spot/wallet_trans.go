@@ -3,7 +3,7 @@ package spot
 import (
 	"context"
 	"encoding/json"
-	"github.com/adshao/go-binance"
+	"github.com/adshao/go-binance/v2"
 )
 
 type TransHistoryService struct {
@@ -65,8 +65,6 @@ type UserAssetDribbletDetails struct {
 	TransferedAmount    string `json:"transferedAmount"`
 	FromAsset           string `json:"fromAsset"`
 }
-
-
 
 type TransferService struct {
 	C     *binance.Client

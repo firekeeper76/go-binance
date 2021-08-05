@@ -1,8 +1,8 @@
 package spot
 
 import (
-	"github.com/adshao/go-binance"
 	"context"
+	"github.com/adshao/go-binance/v2"
 	"reflect"
 	"testing"
 )

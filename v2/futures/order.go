@@ -1,9 +1,9 @@
 package futures
 
 import (
-	"github.com/adshao/go-binance"
 	"context"
 	"encoding/json"
+	"github.com/adshao/go-binance/v2"
 )
 
 // CreateOrderService create order
@@ -504,7 +504,6 @@ func (s *CancelAllOpenOrdersService) Do(ctx context.Context, opts ...binance.Req
 	}
 	return nil
 }
-
 
 // LiquidationOrder define liquidation order
 type LiquidationOrder struct {

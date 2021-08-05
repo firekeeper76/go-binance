@@ -4,9 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/adshao/go-binance"
-	"github.com/adshao/go-binance/futures"
-	"github.com/adshao/go-binance/spot"
+	"github.com/adshao/go-binance/v2"
+	"github.com/adshao/go-binance/v2/futures"
+	"github.com/adshao/go-binance/v2/spot"
 	"testing"
 )
 
@@ -27,7 +27,7 @@ func TestChanged(t *testing.T) {
 }
 
 func TestChangedFutures(t *testing.T) {
-	client :=  binance.NewClient("key", "secret")
+	client := binance.NewClient("key", "secret")
 	// change 1. 接口请求service改为外部注入client
 	res, err := futures.NewServerTimeService(client).
 		Do(context.Background())
@@ -44,17 +44,17 @@ func TestChangedFutures(t *testing.T) {
 
 // change 3. 可在外部自定义service 有些sdk没有实现的接口 可以自己实现
 type CustomService struct {
-	C  *binance.Client
+	C *binance.Client
 }
 
 type CustomResponse struct {
 }
 
 func (s *CustomService) Do(ctx context.Context) (*CustomResponse, error) {
-	r := & binance.Request{
+	r := &binance.Request{
 		Method:   "GET",
 		Endpoint: "/api/v3/接口",
-		SecType:   binance.SecTypeNone,
+		SecType:  binance.SecTypeNone,
 	}
 	res, err := s.C.Request(ctx, r)
 	if err != nil {
@@ -63,7 +63,7 @@ func (s *CustomService) Do(ctx context.Context) (*CustomResponse, error) {
 	resp := new(CustomResponse)
 	jErr := json.Unmarshal(res, resp)
 	if jErr != nil {
-		return nil,  binance.NewApiErr(jErr.Error())
+		return nil, binance.NewApiErr(jErr.Error())
 	}
 	return resp, nil
 }

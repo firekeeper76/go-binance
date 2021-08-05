@@ -1,9 +1,9 @@
 package spot
 
 import (
-	"github.com/adshao/go-binance"
 	"context"
 	"encoding/json"
+	"github.com/adshao/go-binance/v2"
 )
 
 // CreateOrderService create order

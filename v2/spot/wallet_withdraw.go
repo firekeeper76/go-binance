@@ -1,9 +1,9 @@
 package spot
 
 import (
-	"github.com/adshao/go-binance"
 	"context"
 	"encoding/json"
+	"github.com/adshao/go-binance/v2"
 )
 
 type WalletWithdrawService struct {
@@ -286,7 +286,6 @@ func (s *WalletDisableFastService) Do(ctx context.Context, opts ...binance.Reque
 	_, err = s.C.Request(ctx, r, opts...)
 	return err
 }
-
 
 type WalletApiService struct {
 	C *binance.Client

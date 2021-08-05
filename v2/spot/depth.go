@@ -1,9 +1,9 @@
 package spot
 
 import (
-	"github.com/adshao/go-binance"
-	"github.com/adshao/go-binance/common"
 	"context"
+	"github.com/adshao/go-binance/v2"
+	"github.com/adshao/go-binance/v2/common"
 )
 
 // DepthService show depth info

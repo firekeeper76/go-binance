@@ -1,10 +1,10 @@
 package futures
 
 import (
-	"github.com/adshao/go-binance"
-	"github.com/adshao/go-binance/common"
 	"context"
 	"encoding/json"
+	"github.com/adshao/go-binance/v2"
+	"github.com/adshao/go-binance/v2/common"
 )
 
 // ListBookTickersService list best price/qty on the order book for a symbol or symbols

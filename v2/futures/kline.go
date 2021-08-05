@@ -2,7 +2,7 @@ package futures
 
 import (
 	"context"
-	"github.com/adshao/go-binance"
+	"github.com/adshao/go-binance/v2"
 )
 
 // KlinesService list klines

@@ -3,8 +3,8 @@ package futures
 import (
 	"context"
 	"encoding/json"
-	"github.com/adshao/go-binance"
-	"github.com/adshao/go-binance/common"
+	"github.com/adshao/go-binance/v2"
+	"github.com/adshao/go-binance/v2/common"
 )
 
 // PremiumIndexService get premium index

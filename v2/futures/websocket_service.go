@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/adshao/go-binance"
+	"github.com/adshao/go-binance/v2"
 	"strings"
 	"time"
 )

@@ -1,9 +1,9 @@
 package delivery
 
 import (
-	"github.com/adshao/go-binance"
 	"context"
 	"encoding/json"
+	"github.com/adshao/go-binance/v2"
 )
 
 // ChangeLeverageService change user's initial leverage of specific symbol market
@@ -87,7 +87,7 @@ func (s *ChangeMarginTypeService) Do(ctx context.Context, opts ...binance.Reques
 	})
 	_, rErr := s.C.Request(ctx, r, opts...)
 	if rErr != nil {
-		return  rErr
+		return rErr
 	}
 	return nil
 }
@@ -143,7 +143,7 @@ func (s *UpdatePositionMarginService) Do(ctx context.Context, opts ...binance.Re
 	r.SetFormParams(m)
 	_, rErr := s.C.Request(ctx, r, opts...)
 	if rErr != nil {
-		return  rErr
+		return rErr
 	}
 	return nil
 }
@@ -176,7 +176,7 @@ func (s *ChangePositionModeService) Do(ctx context.Context, opts ...binance.Requ
 	})
 	_, rErr := s.C.Request(ctx, r, opts...)
 	if rErr != nil {
-		return  rErr
+		return rErr
 	}
 	return nil
 }

@@ -3,8 +3,8 @@ package binance_test
 import (
 	"context"
 	"fmt"
-	"github.com/adshao/go-binance"
-	"github.com/adshao/go-binance/delivery"
+	"github.com/adshao/go-binance/v2"
+	"github.com/adshao/go-binance/v2/delivery"
 	"testing"
 	"time"
 )

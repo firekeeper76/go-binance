@@ -3,7 +3,7 @@ package spot
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/adshao/go-binance"
+	"github.com/adshao/go-binance/v2"
 	"strings"
 )
 

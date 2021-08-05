@@ -1,11 +1,11 @@
-### github.com/adshao/go-binance
+### github.com/adshao/go-binance/v2
 
 A Golang SDK for [binance](https://www.binance.com) API.
 
-[![Build Status](https://travis-ci.org/adshao/github.com/adshao/go-binance.svg?branch=master)](https://travis-ci.org/adshao/github.com/adshao/go-binance)
-[![GoDoc](https://godoc.org/github.com/adshao/github.com/adshao/go-binance?status.svg)](https://godoc.org/github.com/adshao/github.com/adshao/go-binance)
-[![Go Report Card](https://goreportcard.com/badge/github.com/adshao/github.com/adshao/go-binance)](https://goreportcard.com/report/github.com/adshao/github.com/adshao/go-binance)
-[![codecov](https://codecov.io/gh/adshao/github.com/adshao/go-binance/branch/master/graph/badge.svg)](https://codecov.io/gh/adshao/github.com/adshao/go-binance)
+[![Build Status](https://travis-ci.org/adshao/github.com/adshao/go-binance/v2.svg?branch=master)](https://travis-ci.org/adshao/github.com/adshao/go-binance/v2)
+[![GoDoc](https://godoc.org/github.com/adshao/github.com/adshao/go-binance/v2?status.svg)](https://godoc.org/github.com/adshao/github.com/adshao/go-binance/v2)
+[![Go Report Card](https://goreportcard.com/badge/github.com/adshao/github.com/adshao/go-binance/v2)](https://goreportcard.com/report/github.com/adshao/github.com/adshao/go-binance/v2)
+[![codecov](https://codecov.io/gh/adshao/github.com/adshao/go-binance/v2/branch/master/graph/badge.svg)](https://codecov.io/gh/adshao/github.com/adshao/go-binance/v2)
 
 All the REST APIs listed in [binance API document](https://github.com/binance-exchange/binance-official-api-docs) are implemented, as well as the websocket APIs.
 
@@ -27,20 +27,20 @@ Name | Description | Status
 ### Installation
 
 ```shell
-go get github.com/adshao/github.com/adshao/go-binance/v2
+go get github.com/adshao/github.com/adshao/go-binance/v2/v2
 ```
 
 ### Importing
 
 ```golang
 import (
-    "github.com/adshao/github.com/adshao/go-binance/v2"
+    "github.com/adshao/github.com/adshao/go-binance/v2/v2"
 )
 ```
 
 ### Documentation
 
-[![GoDoc](https://godoc.org/github.com/adshao/github.com/adshao/go-binance?status.svg)](https://godoc.org/github.com/adshao/github.com/adshao/go-binance)
+[![GoDoc](https://godoc.org/github.com/adshao/github.com/adshao/go-binance/v2?status.svg)](https://godoc.org/github.com/adshao/github.com/adshao/go-binance/v2)
 
 ### REST API
 
@@ -62,7 +62,7 @@ A service instance stands for a REST API endpoint and is initialized by client.N
 
 Simply call API in chain style. Call Do() in the end to send HTTP request.
 
-Following are some simple examples, please refer to [godoc](https://godoc.org/github.com/adshao/github.com/adshao/go-binance) for full references.
+Following are some simple examples, please refer to [godoc](https://godoc.org/github.com/adshao/github.com/adshao/go-binance/v2) for full references.
 
 #### Create Order
 
@@ -317,7 +317,7 @@ Use the `binance.UseTestnet` flag before calling the client creation and the web
 
 ```go
 import (
-    "github.com/adshao/github.com/adshao/go-binance/v2"
+    "github.com/adshao/github.com/adshao/go-binance/v2/v2"
 )
 
 spot.UseTestnet = true
@@ -332,7 +332,7 @@ Use the `futures.UseTestnet` flag before calling the websockets methods
 
 ```go
 import (
-    "github.com/adshao/github.com/adshao/go-binance/v2/futures"
+    "github.com/adshao/github.com/adshao/go-binance/v2/v2/futures"
 )
 futures.UseWsTestnet = true
 futuresClient = futures.NewFuturesTestClient(ApiKey, SecretKey)
@@ -345,7 +345,7 @@ Use the `delivery.UseWsTestnet` flag before calling the websockets methods
 
 ```go
 import (
-    "github.com/adshao/github.com/adshao/go-binance/v2/delivery"
+    "github.com/adshao/github.com/adshao/go-binance/v2/v2/delivery"
 )
 
 delivery.UseWsTestnet = true

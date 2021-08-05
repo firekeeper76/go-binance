@@ -1,9 +1,9 @@
 package delivery
 
 import (
-	"github.com/adshao/go-binance"
 	"context"
 	"encoding/json"
+	"github.com/adshao/go-binance/v2"
 )
 
 // ExchangeInfoService exchange info service
