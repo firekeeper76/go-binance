@@ -1,11 +1,11 @@
-### go-binance
+### github.com/firekeeper76/go-binance
 
 A Golang SDK for [binance](https://www.binance.com) API.
 
-[![Build Status](https://travis-ci.org/adshao/go-binance.svg?branch=master)](https://travis-ci.org/adshao/go-binance)
-[![GoDoc](https://godoc.org/github.com/adshao/go-binance?status.svg)](https://godoc.org/github.com/adshao/go-binance)
-[![Go Report Card](https://goreportcard.com/badge/github.com/adshao/go-binance)](https://goreportcard.com/report/github.com/adshao/go-binance)
-[![codecov](https://codecov.io/gh/adshao/go-binance/branch/master/graph/badge.svg)](https://codecov.io/gh/adshao/go-binance)
+[![Build Status](https://travis-ci.org/adshao/github.com/firekeeper76/go-binance.svg?branch=master)](https://travis-ci.org/adshao/github.com/firekeeper76/go-binance)
+[![GoDoc](https://godoc.org/github.com/adshao/github.com/firekeeper76/go-binance?status.svg)](https://godoc.org/github.com/adshao/github.com/firekeeper76/go-binance)
+[![Go Report Card](https://goreportcard.com/badge/github.com/adshao/github.com/firekeeper76/go-binance)](https://goreportcard.com/report/github.com/adshao/github.com/firekeeper76/go-binance)
+[![codecov](https://codecov.io/gh/adshao/github.com/firekeeper76/go-binance/branch/master/graph/badge.svg)](https://codecov.io/gh/adshao/github.com/firekeeper76/go-binance)
 
 All the REST APIs listed in [binance API document](https://github.com/binance-exchange/binance-official-api-docs) are implemented, as well as the websocket APIs.
 
@@ -27,20 +27,20 @@ Name | Description | Status
 ### Installation
 
 ```shell
-go get github.com/adshao/go-binance/v2
+go get github.com/adshao/github.com/firekeeper76/go-binance/v2
 ```
 
 ### Importing
 
 ```golang
 import (
-    "github.com/adshao/go-binance/v2"
+    "github.com/adshao/github.com/firekeeper76/go-binance/v2"
 )
 ```
 
 ### Documentation
 
-[![GoDoc](https://godoc.org/github.com/adshao/go-binance?status.svg)](https://godoc.org/github.com/adshao/go-binance)
+[![GoDoc](https://godoc.org/github.com/adshao/github.com/firekeeper76/go-binance?status.svg)](https://godoc.org/github.com/adshao/github.com/firekeeper76/go-binance)
 
 ### REST API
 
@@ -62,7 +62,7 @@ A service instance stands for a REST API endpoint and is initialized by client.N
 
 Simply call API in chain style. Call Do() in the end to send HTTP request.
 
-Following are some simple examples, please refer to [godoc](https://godoc.org/github.com/adshao/go-binance) for full references.
+Following are some simple examples, please refer to [godoc](https://godoc.org/github.com/adshao/github.com/firekeeper76/go-binance) for full references.
 
 #### Create Order
 
@@ -316,7 +316,7 @@ Use the `binance.UseTestnet` flag before calling the client creation and the web
 
 ```go
 import (
-    "github.com/adshao/go-binance/v2"
+    "github.com/adshao/github.com/firekeeper76/go-binance/v2"
 )
 
 binance.UseTestnet = true
@@ -329,7 +329,7 @@ Use the `futures.UseTestnet` flag before calling the client creation and the web
 
 ```go
 import (
-    "github.com/adshao/go-binance/v2/futures"
+    "github.com/adshao/github.com/firekeeper76/go-binance/v2/futures"
 )
 
 futures.UseTestnet = true
@@ -342,7 +342,7 @@ Use the `delivery.UseTestnet` flag before calling the client creation and the we
 
 ```go
 import (
-    "github.com/adshao/go-binance/v2/delivery"
+    "github.com/adshao/github.com/firekeeper76/go-binance/v2/delivery"
 )
 
 delivery.UseTestnet = true

@@ -1,7 +1,7 @@
 package spot
 
 import (
-	"go-binance"
+	"github.com/firekeeper76/go-binance"
 	"context"
 	"encoding/json"
 	"strings"

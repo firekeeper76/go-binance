@@ -2,7 +2,7 @@ package futures
 
 import (
 	"context"
-	"go-binance"
+	"github.com/firekeeper76/go-binance"
 )
 
 // PingService ping server

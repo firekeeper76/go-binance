@@ -2,8 +2,8 @@ package futures
 
 import (
 	"context"
-	"go-binance"
-	"go-binance/common"
+	"github.com/firekeeper76/go-binance"
+	"github.com/firekeeper76/go-binance/common"
 )
 
 // DepthService show depth info

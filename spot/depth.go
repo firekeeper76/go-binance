@@ -1,8 +1,8 @@
 package spot
 
 import (
-	"go-binance"
-	"go-binance/common"
+	"github.com/firekeeper76/go-binance"
+	"github.com/firekeeper76/go-binance/common"
 	"context"
 )
 
