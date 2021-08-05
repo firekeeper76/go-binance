@@ -1,8 +1,8 @@
 package spot
 
 import (
-	"github.com/adshao/go-binance/v2"
-	"github.com/adshao/go-binance/v2/common"
+	"github.com/adshao/go-binance"
+	"github.com/adshao/go-binance/common"
 	"context"
 	"encoding/json"
 )

@@ -3,7 +3,7 @@ package spot
 import (
 	"context"
 	"encoding/json"
-	"github.com/adshao/go-binance/v2"
+	"github.com/adshao/go-binance"
 )
 
 // FuturesTransferService transfer asset between spot account and futures account

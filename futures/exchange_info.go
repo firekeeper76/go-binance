@@ -3,7 +3,7 @@ package futures
 import (
 	"context"
 	"encoding/json"
-	"github.com/adshao/go-binance/v2"
+	"github.com/adshao/go-binance"
 )
 
 // ExchangeInfoService exchange info service

@@ -1,6 +1,6 @@
 package spot
 
-import "github.com/adshao/go-binance/v2"
+import "github.com/adshao/go-binance"
 
 // SideType define side type of order
 type SideType string
