@@ -310,3 +310,11 @@ func NewGetIncomeHistoryService(c *binance.Client) *GetIncomeHistoryService {
 func NewBlvtKlinesService(c *binance.Client) *BlvtKlinesService {
 	return &BlvtKlinesService{C: c}
 }
+
+func NewGetAccountV2Service(c *binance.Client) *GetAccountV2Service {
+	return &GetAccountV2Service{C: c}
+}
+
+func NewGetBalanceV2Service(c *binance.Client) *GetBalanceV2Service {
+	return &GetBalanceV2Service{C: c}
+}

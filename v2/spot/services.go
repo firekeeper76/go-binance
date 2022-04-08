@@ -389,3 +389,11 @@ func NewListMarginOpenOrdersService(c *binance.Client) *ListMarginOpenOrdersServ
 func NewListMarginOrdersService(c *binance.Client) *ListMarginOrdersService {
 	return &ListMarginOrdersService{C: c}
 }
+
+func NewGetAccountV2Service(c *binance.Client) *GetAccountV2Service {
+	return &GetAccountV2Service{C: c}
+}
+
+func NewGetBalanceV2Service(c *binance.Client) *GetBalanceV2Service {
+	return &GetBalanceV2Service{C: c}
+}

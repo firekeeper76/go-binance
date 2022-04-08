@@ -306,7 +306,7 @@ type ApiResponse struct {
 }
 
 // Do send request
-func (s *WalletApiService) Do(ctx context.Context, opts ...binance.RequestOption) (res *ApiResponse, err error) {
+func (s *WalletApiService) Do(ctx context.Context, opts ...binance.RequestOption) (res *ApiResponse, err *binance.APIError) {
 	r := &binance.Request{
 		Method:   "GET",
 		Endpoint: "/sapi/v1/account/apiRestrictions",

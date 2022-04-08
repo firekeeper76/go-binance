@@ -325,15 +325,15 @@ func (s *CreateOCOService) createOrder(ctx context.Context, endpoint string, opt
 }
 
 // Do send request
-func (s *CreateOCOService) Do(ctx context.Context) (res *CreateOCOResponse, err error) {
+func (s *CreateOCOService) Do(ctx context.Context) (res *CreateOCOResponse, err *binance.APIError) {
 	data, err := s.createOrder(ctx, "/api/v3/order/oco")
 	if err != nil {
 		return nil, err
 	}
 	res = new(CreateOCOResponse)
-	err = json.Unmarshal(data, res)
-	if err != nil {
-		return nil, err
+	jErr := json.Unmarshal(data, res)
+	if jErr != nil {
+		return nil, binance.NewApiErr(jErr.Error())
 	}
 	return res, nil
 }
@@ -391,7 +391,7 @@ func (s *ListOpenOrdersService) Symbol(symbol string) *ListOpenOrdersService {
 }
 
 // Do send request
-func (s *ListOpenOrdersService) Do(ctx context.Context) (res []*Order, err error) {
+func (s *ListOpenOrdersService) Do(ctx context.Context) (res []*Order, err *binance.APIError) {
 	r := &binance.Request{
 		Method:   "GET",
 		Endpoint: "/api/v3/openOrders",
@@ -405,9 +405,9 @@ func (s *ListOpenOrdersService) Do(ctx context.Context) (res []*Order, err error
 		return []*Order{}, err
 	}
 	res = make([]*Order, 0)
-	err = json.Unmarshal(data, &res)
-	if err != nil {
-		return []*Order{}, err
+	jErr := json.Unmarshal(data, &res)
+	if jErr != nil {
+		return []*Order{}, binance.NewApiErr(jErr.Error())
 	}
 	return res, nil
 }
@@ -439,7 +439,7 @@ func (s *GetOrderService) OrigClientOrderID(origClientOrderID string) *GetOrderS
 }
 
 // Do send request
-func (s *GetOrderService) Do(ctx context.Context) (res *Order, err error) {
+func (s *GetOrderService) Do(ctx context.Context) (res *Order, err *binance.APIError) {
 	r := &binance.Request{
 		Method:   "GET",
 		Endpoint: "/api/v3/order",
@@ -457,9 +457,9 @@ func (s *GetOrderService) Do(ctx context.Context) (res *Order, err error) {
 		return nil, err
 	}
 	res = new(Order)
-	err = json.Unmarshal(data, res)
-	if err != nil {
-		return nil, err
+	jErr := json.Unmarshal(data, res)
+	if jErr != nil {
+		return nil, binance.NewApiErr(jErr.Error())
 	}
 	return res, nil
 }
@@ -526,7 +526,7 @@ func (s *ListOrdersService) Limit(limit int) *ListOrdersService {
 }
 
 // Do send request
-func (s *ListOrdersService) Do(ctx context.Context) (res []*Order, err error) {
+func (s *ListOrdersService) Do(ctx context.Context) (res []*Order, err *binance.APIError) {
 	r := &binance.Request{
 		Method:   "GET",
 		Endpoint: "/api/v3/allOrders",
@@ -550,9 +550,9 @@ func (s *ListOrdersService) Do(ctx context.Context) (res []*Order, err error) {
 		return []*Order{}, err
 	}
 	res = make([]*Order, 0)
-	err = json.Unmarshal(data, &res)
-	if err != nil {
-		return []*Order{}, err
+	jErr := json.Unmarshal(data, &res)
+	if jErr != nil {
+		return []*Order{}, binance.NewApiErr(jErr.Error())
 	}
 	return res, nil
 }
@@ -694,7 +694,7 @@ func (s *CancelOpenOrdersService) Symbol(symbol string) *CancelOpenOrdersService
 }
 
 // Do send request
-func (s *CancelOpenOrdersService) Do(ctx context.Context, opts ...binance.RequestOption) (res *CancelOpenOrdersResponse, err error) {
+func (s *CancelOpenOrdersService) Do(ctx context.Context, opts ...binance.RequestOption) (res *CancelOpenOrdersResponse, err *binance.APIError) {
 	r := &binance.Request{
 		Method:   "DELETE",
 		Endpoint: "/api/v3/openOrders",
