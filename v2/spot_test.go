@@ -31,6 +31,22 @@ func TestSpotWs(t *testing.T) {
 	}
 	select {}
 }
+func TestBlvtWs(t *testing.T) {
+	binance.WebsocketKeepalive = true
+	wsHandler := func(event *spot.WsBLVTInfoEvent) {
+		fmt.Println(event)
+	}
+	errHandler := func(err error) {
+		fmt.Println("BTCUSDT SubDepth:", err)
+	}
+	_, _, err := spot.WsBLVTInfoServe("BTCDOWNUSDT", wsHandler, errHandler)
+	if err != nil {
+		fmt.Println(err)
+		time.Sleep(time.Second)
+		return
+	}
+	select {}
+}
 func TestGetServerTime(t *testing.T) {
 	c := binance.NewFuturesClient("", "")
 	c.Debug = true

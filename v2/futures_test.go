@@ -25,6 +25,7 @@ func TestWs(t *testing.T) {
 	}
 	select {}
 }
+
 func TestNewStartUserStreamService(t *testing.T) {
 	c := binance.NewFuturesClient(key, secret)
 	c.Debug = true

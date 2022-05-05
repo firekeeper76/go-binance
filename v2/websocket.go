@@ -1,6 +1,7 @@
 package binance
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/gorilla/websocket"
@@ -32,6 +33,7 @@ func NewWsConfig(endpoint string) *WsConfig {
 
 var WsServe = func(cfg *WsConfig, handler WsHandler, errHandler ErrHandler) (doneC, stopC chan struct{}, err error) {
 	c, _, err := websocket.DefaultDialer.Dial(cfg.Endpoint, nil)
+	fmt.Println(cfg.Endpoint)
 	if err != nil {
 		return nil, nil, err
 	}

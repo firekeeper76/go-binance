@@ -13,6 +13,7 @@ const (
 	baseWsTestnetURL       = "wss://testnet.binance.vision/ws"
 	baseCombinedMainURL    = "wss://stream.binance.com:9443/stream?streams="
 	baseCombinedTestnetURL = "wss://testnet.binance.vision/stream?streams="
+	baseWsBLVTUrl          = "wss://nbstream.binance.com/lvt-p"
 )
 
 var (
@@ -33,6 +34,13 @@ func getCombinedEndpoint() string {
 		return baseCombinedTestnetURL
 	}
 	return baseCombinedMainURL
+}
+
+func getWsBLVTEndpoint() string {
+	if UseWsTestnet {
+		return baseWsTestnetURL
+	}
+	return baseWsBLVTUrl
 }
 
 // WsPartialDepthEvent define websocket partial depth book event
@@ -570,6 +578,87 @@ func WsAllBookTickerServe(handler WsBookTickerHandler, errHandler binance.ErrHan
 	wsHandler := func(message []byte) {
 		event := new(WsBookTickerEvent)
 		err := json.Unmarshal(message, &event)
+		if err != nil {
+			errHandler(err)
+			return
+		}
+		handler(event)
+	}
+	return binance.WsServe(cfg, wsHandler, errHandler)
+}
+
+// WsBLVTInfoEvent define websocket BLVT info event
+type WsBLVTInfoEvent struct {
+	Event          string         `json:"e"`
+	Time           int64          `json:"E"`
+	Symbol         string         `json:"s"`
+	Issued         float64        `json:"m"`
+	Baskets        []WsBLVTBasket `json:"b"`
+	Nav            float64        `json:"n"`
+	Leverage       float64        `json:"l"`
+	TargetLeverage float64        `json:"t"`
+	FundingRate    float64        `json:"f"`
+}
+
+// WsBLVTBasket define websocket BLVT basket
+type WsBLVTBasket struct {
+	Symbol   string  `json:"s"`
+	Position float64 `json:"n"`
+}
+
+// WsBLVTInfoHandler handle websocket BLVT event
+type WsBLVTInfoHandler func(event *WsBLVTInfoEvent)
+
+// WsBLVTInfoServe serve BLVT info stream
+func WsBLVTInfoServe(name string, handler WsBLVTInfoHandler, errHandler binance.ErrHandler) (doneC, stopC chan struct{}, err error) {
+	endpoint := fmt.Sprintf("%s/%s@tokenNav", getWsBLVTEndpoint(), strings.ToUpper(name))
+	cfg := binance.NewWsConfig(endpoint)
+	wsHandler := func(message []byte) {
+		event := new(WsBLVTInfoEvent)
+		err := json.Unmarshal(message, &event)
+		if err != nil {
+			errHandler(err)
+			return
+		}
+		handler(event)
+	}
+	return binance.WsServe(cfg, wsHandler, errHandler)
+}
+
+// WsBLVTKlineEvent define BLVT kline event
+type WsBLVTKlineEvent struct {
+	Event  string      `json:"e"`
+	Time   int64       `json:"E"`
+	Symbol string      `json:"s"`
+	Kline  WsBLVTKline `json:"k"`
+}
+
+// WsBLVTKline BLVT kline
+type WsBLVTKline struct {
+	StartTime       int64  `json:"t"`
+	CloseTime       int64  `json:"T"`
+	Symbol          string `json:"s"`
+	Interval        string `json:"i"`
+	FirstUpdateTime int64  `json:"f"`
+	LastUpdateTime  int64  `json:"L"`
+	OpenPrice       string `json:"o"`
+	ClosePrice      string `json:"c"`
+	HighPrice       string `json:"h"`
+	LowPrice        string `json:"l"`
+	Leverage        string `json:"v"`
+	Count           int64  `json:"n"`
+}
+
+// WsBLVTKlineHandler BLVT kline handler
+type WsBLVTKlineHandler func(event *WsBLVTKlineEvent)
+
+// WsBLVTKlineServe serve BLVT kline stream
+func WsBLVTKlineServe(name string, interval string, handler WsBLVTKlineHandler, errHandler binance.ErrHandler) (doneC, stopC chan struct{}, err error) {
+	endpoint := fmt.Sprintf("%s/%s@nav_Kline_%s", getWsBLVTEndpoint(), strings.ToUpper(name), interval)
+	cfg := binance.NewWsConfig(endpoint)
+	wsHandler := func(message []byte) {
+		event := new(WsBLVTKlineEvent)
+		err := json.Unmarshal(message, event)
 		if err != nil {
 			errHandler(err)
 			return
